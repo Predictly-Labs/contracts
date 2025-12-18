@@ -1,0 +1,17 @@
+[package]
+name = "predictly"
+version = "1.0.0"
+authors = ["Predictly Labs"]
+
+[addresses]
+predictly = "_"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework", rev = "mainnet" }
+AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib", rev = "mainnet" }
+MoveStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib", rev = "mainnet" }
+
+[dev-addresses]
+predictly = "0xCAFE"
+
+[dev-dependencies]

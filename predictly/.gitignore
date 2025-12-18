@@ -1,0 +1,11 @@
+# Move build artifacts
+build/
+.aptos/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
