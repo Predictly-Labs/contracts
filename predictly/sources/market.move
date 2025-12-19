@@ -3,7 +3,6 @@
 module predictly::market {
     use std::string::String;
     use std::signer;
-    use std::vector;
     use aptos_framework::coin::{Self, Coin};
     use aptos_framework::aptos_coin::AptosCoin;
     use aptos_framework::timestamp;
@@ -483,6 +482,50 @@ module predictly::market {
         let yes_pct = (market.yes_pool * 10000) / total;
         let no_pct = 10000 - yes_pct;
         (yes_pct, no_pct)
+    }
+
+    // ==================== Getter Functions for Testing ====================
+
+    #[view]
+    /// Get market status
+    public fun get_market_status(admin_addr: address, market_id: u64): u8 acquires MarketRegistry {
+        let market = get_market_state(admin_addr, market_id);
+        market.status
+    }
+
+    #[view]
+    /// Get market outcome
+    public fun get_market_outcome(admin_addr: address, market_id: u64): u8 acquires MarketRegistry {
+        let market = get_market_state(admin_addr, market_id);
+        market.outcome
+    }
+
+    #[view]
+    /// Get market pools (yes_pool, no_pool)
+    public fun get_market_pools(admin_addr: address, market_id: u64): (u64, u64) acquires MarketRegistry {
+        let market = get_market_state(admin_addr, market_id);
+        (market.yes_pool, market.no_pool)
+    }
+
+    #[view]
+    /// Get market participant count
+    public fun get_participant_count(admin_addr: address, market_id: u64): u64 acquires MarketRegistry {
+        let market = get_market_state(admin_addr, market_id);
+        market.participant_count
+    }
+
+    #[view]
+    /// Get vote prediction
+    public fun get_vote_prediction(admin_addr: address, market_id: u64, voter: address): u8 acquires VoteRegistry {
+        let vote = get_vote(admin_addr, market_id, voter);
+        vote.prediction
+    }
+
+    #[view]
+    /// Get vote amount
+    public fun get_vote_amount(admin_addr: address, market_id: u64, voter: address): u64 acquires VoteRegistry {
+        let vote = get_vote(admin_addr, market_id, voter);
+        vote.amount
     }
 
     // ==================== Internal Functions ====================
