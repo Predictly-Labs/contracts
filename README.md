@@ -6,7 +6,7 @@ Move smart contracts for Predictly prediction market platform on Movement Networ
 
 | Contract | Description | Docs |
 |----------|-------------|------|
-| [predictly](./predictly/) | Prediction market core contract | [README](./predictly/README.md) |
+| [predictly](https://explorer.movementnetwork.xyz/account/0x9161980be9b78e96ddae98ceb289f6f4cda5e4af70667667ff9af8438a94e565/transactions?network=bardock+testnet) | Prediction market core contract | [README]([./predictly/README.md](https://github.com/Predictly-Labs)) |
 
 ## Deployed Addresses
 
